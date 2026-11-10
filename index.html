@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Packet Tracer 逐段排查助手</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-head">
+    <h1>Packet Tracer 逐段排查助手</h1>
+    <p class="lead">照著提示在 Packet Tracer 裡測試，再回來回報結果，網站會告訴你下一步查哪裡、為什麼。</p>
+    <nav id="case-menu" class="case-menu" aria-label="案例選單"></nav>
+  </header>
+
+  <main class="layout">
+    <section class="case-intro" id="case-intro" aria-label="案例說明"></section>
+
+    <section class="topology-wrap" aria-label="網路拓樸">
+      <h2>網路拓樸</h2>
+      <div id="topology" class="topology"></div>
+      <p class="topo-note">酒紅框表示這一步要操作的設備。圖上未標示的位址，請以你自己的 Packet Tracer 檔案為準。</p>
+    </section>
+
+    <section class="step-wrap" id="step" aria-live="polite" aria-label="目前測試步驟"></section>
+
+    <section class="controls" aria-label="操作">
+      <button id="btn-back" type="button" class="btn ghost">上一步</button>
+      <button id="btn-reset" type="button" class="btn ghost">重新開始</button>
+    </section>
+
+    <section class="panel" aria-label="各段檢查狀態">
+      <h2>各段檢查狀態</h2>
+      <ul id="segments" class="segments"></ul>
+    </section>
+
+    <section class="panel" aria-label="本次測試紀錄">
+      <h2>本次測試紀錄</h2>
+      <ol id="log" class="log"></ol>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <p>測試結果都由你在 Packet Tracer 實測後回報；還沒測的部分一律顯示「待驗證」。</p>
+  </footer>
+
+  <!-- 案例檔：新增案例時，在這裡多加一行 script，再把檔案放進 cases/ -->
+  <script src="cases/route-missing.js"></script>
+  <script src="cases/trunk-vlan.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
